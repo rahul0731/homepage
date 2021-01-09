@@ -10,12 +10,11 @@ class App extends React.Component {
     const response = await axios.get(
       `http://www.omdbapi.com/?i=${query}&&${KEY}`
     );
-    this.setState({ data: response.data });
-    this.setState({ ratingData: response.data.Ratings });
+    this.setState({ data: response.data , ratingData: response.data.Ratings });
   }
 
   render() {
-    console.log("state data ", this.state.data);
+    console.log("Movie Detail", this.state.data);
     // const rating = this.state.ratingData.map( (rating) =>{
     //   return (
     //     <span key={rating.Source} style={{color :'#0a0a0a'}}>
@@ -46,7 +45,7 @@ class App extends React.Component {
           </div>
           <div className="column eight wide right ">
             <h3 style={{ color: "#0C0098" }}>
-              {data.Title}{" "}
+              {data.Title}
               <span
                 style={{
                   fontFamily: "cursive",
